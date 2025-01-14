@@ -1,7 +1,10 @@
 package org.acme;
 
+import java.util.Optional;
+
 import io.quarkus.runtime.annotations.StaticInitSafe;
 import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithParentName;
 
 @StaticInitSafe
 @ConfigMapping(prefix = "feature")
@@ -9,10 +12,15 @@ public interface MyOptionalConfig {
 
     boolean enabled();
 
-    String config1();
+    @WithParentName
+    Optional<Props> props();
 
-    String config2();
+    interface Props {
+        String config1();
 
-    String config3();
+        String config2();
+
+        String config3();
+    }
 
 }

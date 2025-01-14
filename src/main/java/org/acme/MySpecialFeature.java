@@ -15,7 +15,7 @@ public class MySpecialFeature {
     }
 
     public String print() {
-        return conf.config1();
+        return String.valueOf(conf.enabled());
     }
 
 }
